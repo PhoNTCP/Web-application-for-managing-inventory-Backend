@@ -19,5 +19,6 @@ db.sequelize = sequelize;
 
 //import model
 db.product = require('../model/product.js')(sequelize, Sequelize);
-
+db.branch = require('../model/branch.js')(sequelize, Sequelize);
+db.collect_product = require('../model/collect_product.js')(sequelize, Sequelize);
 module.exports = db;
