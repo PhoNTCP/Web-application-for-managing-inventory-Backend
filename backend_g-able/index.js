@@ -6,10 +6,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // add route
 const productRoute = require('./routes/product');
-app.use('/product', productRoute);
+app.use('/api/product', productRoute);
 const branchRoute = require('./routes/branch');
-app.use('/branch', branchRoute);
+app.use('/api/branch', branchRoute);
 const collect_productRoute = require('./routes/collect_product');
-app.use('/collect_product', collect_productRoute);
+app.use('/api/collect_product', collect_productRoute);
 // set port & run server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
