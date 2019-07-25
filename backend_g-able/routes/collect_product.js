@@ -60,3 +60,18 @@ route.delete('/delete/:code', async (req, res, next) => {
 })
   res.json(collect_products);
 });
+
+//////////localhost:8000/api/collect_product/create/data
+route.post('/create/data', async (req, res, next) => {
+  console.log('body::==', req.body);
+  console.log('params::==', req.params);
+  const Data_body = req.body;
+  let new_data = null;
+  if (Data_body) {
+    new_data = await sequelize.transaction(function(t) {
+
+      return collect_product.create(Data_body, { transaction: t });
+    });
+  }
+  res.json(new_data);
+});
