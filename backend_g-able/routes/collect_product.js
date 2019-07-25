@@ -19,7 +19,7 @@ route.get('/find/id/:branch_id', async (req, res, next) => {
 
   const branch_id = req.params.branch_id;
   const collect_products = await collect_product.findAll({
-    attributes: ['BRANCH_ID'],
+    // attributes: ['BRANCH_ID'],
     where: {branch_id: branch_id},
    include : [
      {
@@ -46,3 +46,17 @@ route.get('/find/all', async (req, res, next) => {
   res.json(collect_products);
 });
 module.exports = route;
+
+
+////localhost:8000/api/collect_product/delete/:code
+route.delete('/delete/:code', async (req, res, next) => {
+  console.log('body::==', req.body);
+  console.log('params::==', req.params);
+  const Collect_code = req.params.code;
+  const collect_products = await collect_product.destroy({
+    where: {
+      COLLECT_CODE: Collect_code       // criteria
+    }
+})
+  res.json(collect_products);
+});

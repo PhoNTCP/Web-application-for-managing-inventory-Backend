@@ -11,5 +11,4 @@ const branchRoute = require('./routes/branch');
 app.use('/api/branch', branchRoute);
 const collect_productRoute = require('./routes/collect_product');
 app.use('/api/collect_product', collect_productRoute);
-// set port & run server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
